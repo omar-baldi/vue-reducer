@@ -34,3 +34,22 @@ export const useReducer = <S, A>(
 
   return [readonly(state), dispatchAction] as const;
 };
+
+export const useCombineReducers = <T extends Record<string, ReducerWithAction<any, any>>>(
+  reducers: T
+) => {
+  function getAllReducersState() {
+    const allReducersState = Object.fromEntries(
+      Object.entries(reducers).map(([key, reducer]) => [
+        key,
+        reducer(undefined, undefined),
+      ])
+    ) as { [P in keyof T]: Parameters<T[P]>[0] };
+
+    return allReducersState;
+  }
+
+  return {
+    getAllReducersState,
+  };
+};
