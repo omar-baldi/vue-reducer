@@ -1,14 +1,36 @@
 /* eslint-disable */
-import { readonly, Ref, ref } from "vue";
+import { readonly, type Ref, ref } from "vue";
 
-export type Reducer<S, A> = (prevState: S, action: A) => S;
+export type ReducerWithAction<S, A> = (prevState: S, action: A) => S;
+export type ReducerWithoutAction<S> = (prevState: S) => S;
 
-export const useReducer = <S, A>(reducer: Reducer<S, A>, initialState: S) => {
+export function isReducerWithoutAction<S, A>(
+  reducer: ReducerWithAction<S, A> | ReducerWithoutAction<S>
+): reducer is ReducerWithoutAction<S> {
+  return reducer.length === 1;
+}
+
+export const useReducer = <S, A>(
+  reducer: ReducerWithAction<S, A> | ReducerWithoutAction<S>,
+  initialState: S
+) => {
   const state = ref(initialState) as Ref<S>;
 
-  function dispatch(action: A) {
-    state.value = reducer(state.value, action);
+  function createDispatchFunction() {
+    if (isReducerWithoutAction(reducer)) {
+      return () => {
+        const updatedState = reducer(state.value);
+        state.value = updatedState;
+      };
+    }
+
+    return (action: A) => {
+      const updatedState = reducer(state.value, action);
+      state.value = updatedState;
+    };
   }
 
-  return [readonly(state), dispatch] as const;
+  const dispatchAction = createDispatchFunction();
+
+  return [readonly(state), dispatchAction] as const;
 };
