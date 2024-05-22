@@ -1,8 +1,5 @@
-/* eslint-disable */
-import { readonly, type Ref, ref } from "vue";
-
-export type ReducerWithAction<S, A> = (prevState: S, action: A) => S;
-export type ReducerWithoutAction<S> = (prevState: S) => S;
+import { readonly, ref, type Ref } from "vue";
+import type { ReducerWithAction, ReducerWithoutAction } from "../types";
 
 export function isReducerWithoutAction<S, A>(
   reducer: ReducerWithAction<S, A> | ReducerWithoutAction<S>
@@ -33,23 +30,4 @@ export const useReducer = <S, A>(
   const dispatchAction = createDispatchFunction();
 
   return [readonly(state), dispatchAction] as const;
-};
-
-export const useCombineReducers = <T extends Record<string, ReducerWithAction<any, any>>>(
-  reducers: T
-) => {
-  function getAllReducersState() {
-    const allReducersState = Object.fromEntries(
-      Object.entries(reducers).map(([key, reducer]) => [
-        key,
-        reducer(undefined, undefined),
-      ])
-    ) as { [P in keyof T]: Parameters<T[P]>[0] };
-
-    return allReducersState;
-  }
-
-  return {
-    getAllReducersState,
-  };
 };
