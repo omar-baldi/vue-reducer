@@ -1,5 +1,5 @@
 import { readonly, shallowRef } from "vue";
-import { ReducerWithAction, ReducersState } from "../types";
+import type { ReducerWithAction, ReducersState, Selector } from "../types";
 
 export const useCombineReducers = <T extends Record<string, ReducerWithAction<any, any>>>(
   reducers: T
@@ -34,8 +34,13 @@ export const useCombineReducers = <T extends Record<string, ReducerWithAction<an
     };
   }
 
+  function stateSelector<S extends ReducersState<T>, R>(selector: Selector<S, R>) {
+    return selector(globalState.value);
+  }
+
   return {
     globalState: readonly(globalState),
+    stateSelector,
     dispatch,
   };
 };
