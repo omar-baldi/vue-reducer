@@ -38,9 +38,14 @@ export const useCombineReducers = <T extends Record<string, ReducerWithAction<an
     return selector(globalState.value);
   }
 
+  function getReducerState<K extends keyof T>(key: K): ReducersState<T>[K] {
+    return globalState.value[key];
+  }
+
   return {
     globalState: readonly(globalState),
-    stateSelector,
     dispatch,
+    stateSelector,
+    getReducerState,
   };
 };
