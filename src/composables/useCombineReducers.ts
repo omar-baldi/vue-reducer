@@ -1,5 +1,5 @@
+import type { ReducerWithAction, ReducersState, Selector } from "@/types";
 import { computed, shallowRef } from "vue";
-import type { ReducerWithAction, ReducersState, Selector } from "../types";
 
 export const useCombineReducers = <T extends Record<string, ReducerWithAction<any, any>>>(
   reducers: T
