@@ -20,4 +20,17 @@ describe("useCombineReducers", () => {
       "new comment added",
     ]);
   });
+
+  it("should throw an error if action is dispatched with reducer key not found", () => {
+    const { dispatch } = useCombineReducers({
+      comments: commentsReducer,
+      tasks: tasksReducer,
+    });
+
+    const expectedError = new Error("Reducer with key test not found");
+
+    expect(() => {
+      dispatch("test" as any);
+    }).toThrow(expectedError);
+  });
 });
