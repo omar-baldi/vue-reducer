@@ -1,6 +1,9 @@
-import { createApp } from "vue";
-import App from "./App.vue";
+import { App } from "vue";
+import { useCombineReducers, useReducer } from "./composables";
 
-const app = createApp(App);
-
-app.mount("#app");
+export default {
+  install: (app: App) => {
+    app.config.globalProperties.useReducer = useReducer;
+    app.config.globalProperties.useCombineReducers = useCombineReducers;
+  },
+};

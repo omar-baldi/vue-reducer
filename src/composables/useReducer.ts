@@ -1,7 +1,7 @@
 import type { ReducerWithAction, ReducerWithoutAction } from "@/types";
 import { readonly, ref, type Ref } from "vue";
 
-export function isReducerWithoutAction<S, A>(
+function isReducerWithoutAction<S, A>(
   reducer: ReducerWithAction<S, A> | ReducerWithoutAction<S>
 ): reducer is ReducerWithoutAction<S> {
   return reducer.length === 1;
