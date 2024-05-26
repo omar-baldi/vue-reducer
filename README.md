@@ -1,9 +1,22 @@
-# Vue 3 + TypeScript + Vite
+## About
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+_**vue-reducers-hooks**_, inspired by Redux, is a package designed specifically for Vue applications. It provides two powerful composables/hooks that facilitate handling state in a Redux-like manner:
 
-## Recommended Setup
+- **useReducer**: a composable that allows you to manage state using a reducer function, providing a simple and predictable way to update state based on actions.
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+- **useCombineReducers**: a composable that enables you to combine multiple reducers into a single state management function, making it easier to manage complex state across different parts of your application.
 
-- Use [vue-tsc](https://github.com/vuejs/language-tools/tree/master/packages/tsc) for performing the same type checking from the command line, or for generating d.ts files for SFCs.
+## Getting Started
+
+Install with npm:
+`npm i vue-reducers-hooks`
+
+## Contributing
+
+Whether you want to report a bug, request a feature or submit a pull request, your contribution is **greatly appreciated**.
+
+Don't forget to show your support by giving the project a star!
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
