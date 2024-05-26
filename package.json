@@ -1,6 +1,6 @@
 {
   "name": "vue-reducers-hooks",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "description": "Redux-like hooks for vue applications",
   "author": "Omar Baldi",
