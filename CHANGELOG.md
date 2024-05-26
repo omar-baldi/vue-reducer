@@ -1,5 +1,11 @@
 # vue-reducers-hooks
 
+## 0.0.4
+
+### Patch Changes
+
+- 160afe2: Updated README file
+
 ## 0.0.3
 
 ### Patch Changes
