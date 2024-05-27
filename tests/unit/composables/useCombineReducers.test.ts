@@ -1,5 +1,5 @@
 import { useCombineReducers } from "@/composables/useCombineReducers";
-import { commentsReducer, tasksReducer } from "../../_mocks";
+import { commentsReducer, tasksReducer } from "@tests/_mocks";
 
 describe("useCombineReducers", () => {
   it("should return updated state when using stateSelector method", () => {

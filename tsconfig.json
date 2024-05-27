@@ -5,8 +5,10 @@
     "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"],
+      "@tests/*": ["tests/*"]
     },
 
     /* Bundler mode */
@@ -24,5 +26,6 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["node_modules", "dist"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

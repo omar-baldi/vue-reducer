@@ -7,6 +7,7 @@
   "repository": "https://github.com/omar-baldi/vue-reducer",
   "bugs": "https://github.com/omar-baldi/vue-reducer/issues",
   "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "keywords": [
     "vue",
@@ -14,10 +15,11 @@
     "hooks",
     "composables",
     "reducer",
+    "useReducer",
     "reducers",
     "combine",
     "state",
-    "state-management"
+    "stateManagement"
   ],
   "scripts": {
     "clean": "rm -rf node_modules",
