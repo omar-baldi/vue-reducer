@@ -1,5 +1,11 @@
 # vue-reducers-hooks
 
+## 0.0.7
+
+### Patch Changes
+
+- 1f15d35: configure rollup to treat vue as external dependency
+
 ## 0.0.6
 
 ### Patch Changes
