@@ -1,5 +1,12 @@
 # vue-reducers-hooks
 
+## 0.0.6
+
+### Patch Changes
+
+- 931dd70: Updated vite configuration file
+- 5239b89: Removed unused files
+
 ## 0.0.5
 
 ### Patch Changes
