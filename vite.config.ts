@@ -13,17 +13,14 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "src/composables/index.ts"),
       name: "vueReducersHooks",
-    },
-    rollupOptions: {
-      output: {
-        entryFileNames: `[name].js`,
-        chunkFileNames: `[name].js`,
-      },
+      fileName: "index",
+      formats: ["es", "cjs"],
     },
   },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
+      "@tests": path.resolve(__dirname, "tests"),
     },
   },
 });
