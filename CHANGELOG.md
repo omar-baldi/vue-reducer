@@ -1,5 +1,11 @@
 # vue-reducers-hooks
 
+## 0.0.8
+
+### Patch Changes
+
+- 1f05484: Updated README file with detailed descriptions for composables use
+
 ## 0.0.7
 
 ### Patch Changes
